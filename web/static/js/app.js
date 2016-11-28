@@ -19,3 +19,20 @@ import "phoenix_html"
 // paths "./socket" or full ones "web/static/js/socket".
 
 // import socket from "./socket"
+
+import React from "react"
+import ReactDOM from "react-dom"
+
+import Search from "./app/components/search.js"
+
+/*import SearchForm from "./app/components/search_form"
+import SearchTable from "./app/components/search_table"
+import SearchPagination from "./app/components/search_pagination"
+*/
+
+
+ReactDOM.render(
+  <Search />,
+  document.getElementById("root")
+)
+
