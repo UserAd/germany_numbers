@@ -13,12 +13,14 @@
     "material-design-lite": "^1.2.1",
     "phoenix": "file:deps/phoenix",
     "phoenix_html": "file:deps/phoenix_html",
+    "rc-pagination": "^1.6.1",
     "react": "^15.4.1",
     "react-bootstrap": "^0.30.7",
     "react-dom": "^15.4.1",
     "react-redux": "^4.4.6",
     "redux": "^3.6.0",
-    "redux-logger": "^2.7.4"
+    "redux-logger": "^2.7.4",
+    "superagent": "^3.1.0"
   },
   "devDependencies": {
     "babel-brunch": "~6.0.0",

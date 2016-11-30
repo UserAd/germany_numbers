@@ -41,3 +41,12 @@
 .layout-footer .mdl-mini-footer--link-list a {
   font-size: 13px;
 }
+
+.label__with_margin {
+  margin-right: 0.1em;
+}
+
+.cell_with_phone_prefix::before {
+    color: #999;
+    content: "49 (0) ";
+}
