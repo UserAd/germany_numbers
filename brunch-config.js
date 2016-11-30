@@ -74,6 +74,7 @@ exports.config = {
   plugins: {
     babel: {
       // Do not use ES6 compiler in vendor code
+      presets: ["es2015", "react"],
       ignore: [/web\/static\/vendor/]
     }
   },
@@ -93,8 +94,10 @@ exports.config = {
       "bootstrap-select",
       "material-design-lite",
       "highlight.js",
-      //"phoenix",
-      "phoenix_html"
+      "phoenix",
+      "phoenix_html",
+      "react",
+      "react-dom"
     ],
     styles: {
       bootstrap: ["dist/css/bootstrap.min.css"],
