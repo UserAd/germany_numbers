@@ -20,6 +20,24 @@ const phonePrefixesStore = store => next => action => {
         })
       })
       break
+    
+    case "GET_PAGE":
+      var current_state = store.getState()
+      store.dispatch({
+        type: "GET_PREFIXES_DATA",
+        query: current_state.query, 
+        page: action.page
+      })
+      break
+
+    case "GET_QUERY":
+      store.dispatch({
+        type: "GET_PREFIXES_DATA",
+        query: action.query, 
+        page: 0
+      })
+      break
+
     default: 
       break
   }

@@ -32,7 +32,7 @@ defmodule SearchForm do
                 |> Enum.flat_map(fn x -> x end)
 
       query = from q in query,
-        where: q.prefix in ^prefixes or fragment("(to_tsvector(translated_comment) @@ to_tsquery(?))", ^terms),
+        where: q.prefix in ^prefixes or fragment("(to_tsvector(translated_comment) @@ to_tsquery(?))", ^terms) or fragment("(to_tsvector(usage) @@ to_tsquery(?))", ^terms),
         order_by: [desc: q.prefix]
     end
     query

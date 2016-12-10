@@ -4,10 +4,10 @@ defmodule GermanyNumbers.PhonePrefixController do
   alias GermanyNumbers.PhonePrefix
 
   def index(conn, params) do
-    paginator = GermanyNumbers.PhonePrefix 
+    results = GermanyNumbers.PhonePrefix 
                 |> SearchForm.new(params)
                 |> Paginator.new(params)
 
-    render(conn, "index.json", phone_prefixes: paginator.items, total_prefixes: paginator.total_items)
+    render(conn, "index.json", phone_prefixes: results.items, total_prefixes: results.total_items, total_pages: results.total_pages, current_page: results.page_number)
   end
 end

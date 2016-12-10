@@ -26,23 +26,18 @@ import ReactDOM from "react-dom"
 import {Provider} from 'react-redux'
 import {createStore, applyMiddleware, compose} from 'redux'
 
-import Search from "./app/components/search.js"
-import phonePrefixesStore from "./app/stores/phone_prefixes_store.js"
-import phonePrefixes from "./app/reducers/phone_prefixes.js"
+import phonePrefixesStore from "./app/stores/phone_prefixes.js"
+import phonePrefixesReducer from "./app/reducers/phone_prefixes.js"
+import SearchComponent from "./app/components/search.js"
 
-/*import SearchForm from "./app/components/search_form"
-import SearchTable from "./app/components/search_table"
-import SearchPagination from "./app/components/search_pagination"
-*/
 
-let store = createStore(phonePrefixes, {}, applyMiddleware(phonePrefixesStore))
-window.stor = store
+let store = createStore(phonePrefixesReducer, {phonePrefixes: [], total_pages: 0, current_page: 0, query: ""}, compose(applyMiddleware(phonePrefixesStore), window.devToolsExtension ? window.devToolsExtension() : f => f))
 
 ReactDOM.render(
   <Provider store={store}>
-    <Search />
+    <SearchComponent />
   </Provider>,
   document.getElementById("root")
 )
 
-store.dispatch({type: 'GET_PREFIXES_DATA', query: "", page: 1})
+store.dispatch({type: 'GET_PREFIXES_DATA', query: "", page: 0})

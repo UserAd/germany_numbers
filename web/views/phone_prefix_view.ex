@@ -1,10 +1,12 @@
 defmodule GermanyNumbers.PhonePrefixView do
   use GermanyNumbers.Web, :view
 
-  def render("index.json", %{phone_prefixes: phone_prefixes, total_prefixes: total_prefixes}) do
+  def render("index.json", %{phone_prefixes: phone_prefixes, total_prefixes: total_prefixes, total_pages: total_pages, current_page: current_page}) do
     %{
       data: render_many(phone_prefixes, GermanyNumbers.PhonePrefixView, "phone_prefix.json"),
-      count: total_prefixes
+      count: total_prefixes,
+      total_pages: total_pages,
+      current_page: current_page
     }
   end
 
