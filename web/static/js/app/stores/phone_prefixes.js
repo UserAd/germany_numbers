@@ -2,6 +2,7 @@ import request from 'superagent'
 
 const phonePrefixesStore = store => next => action => {
   next(action)
+  console.log(action)
   switch(action.type) {
     case "GET_PREFIXES_DATA":
       request

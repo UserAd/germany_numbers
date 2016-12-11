@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { searchQuery } from "../actions"
+import TextField from 'material-ui/TextField';
 
 
 let SearchFormContainer = ({ dispatch }) => {
@@ -8,15 +9,14 @@ let SearchFormContainer = ({ dispatch }) => {
 
   return (
     <div>
-      <form className="form-inline" onSubmit={e => {
+      <form onSubmit={e => {
         e.preventDefault()
         dispatch(searchQuery(input.value))
       }}>
-        <div className="form-group">
-          <input ref={node => { input = node }} type="text" className="form-control" />
+        <div className="mdl-textfield mdl-js-textfield">
+          <input className="mdl-textfield__input" type="text" id="sample1" ref={node => { input = node }} />
+          <label className="mdl-textfield__label" htmlFor="sample1">Phone or city...</label>
         </div>
-
-        <button type="submit" className="btn btn-primary">Search</button>
       </form>
     </div>
   )

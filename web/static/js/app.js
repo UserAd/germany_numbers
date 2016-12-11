@@ -12,6 +12,7 @@
 // If you no longer want to use a dependency, remember
 // to also remove its path from "config.paths.watched".
 import "phoenix_html"
+import "material-design-lite"
 
 // Import local files
 //
@@ -22,6 +23,10 @@ import "phoenix_html"
 
 import React from "react"
 import ReactDOM from "react-dom"
+//import injectTapEventPlugin from 'react-tap-event-plugin';
+//injectTapEventPlugin();
+
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import {Provider} from 'react-redux'
 import {createStore, applyMiddleware, compose} from 'redux'
@@ -31,12 +36,14 @@ import phonePrefixesReducer from "./app/reducers/phone_prefixes.js"
 import SearchComponent from "./app/components/search.js"
 
 
-let store = createStore(phonePrefixesReducer, {phonePrefixes: [], total_pages: 0, current_page: 0, query: ""}, compose(applyMiddleware(phonePrefixesStore), window.devToolsExtension ? window.devToolsExtension() : f => f))
+let store = createStore(phonePrefixesReducer, {phonePrefixes: [], total_pages: 0, current_page: 0, query: "", loading: false}, compose(applyMiddleware(phonePrefixesStore), window.devToolsExtension ? window.devToolsExtension() : f => f))
 
 ReactDOM.render(
-  <Provider store={store}>
-    <SearchComponent />
-  </Provider>,
+  <MuiThemeProvider>
+    <Provider store={store}>
+      <SearchComponent />
+    </Provider>
+  </MuiThemeProvider>,
   document.getElementById("root")
 )
 

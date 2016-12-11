@@ -50,3 +50,15 @@
     color: #999;
     content: "49 (0) ";
 }
+
+.mdl-progress__width_100 {
+  width: 100%;
+}
+
+.search_table__width_100 {
+  width: 100%;
+}
+
+.progress__invisible {
+  height: 4px;
+}

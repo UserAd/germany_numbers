@@ -21,7 +21,9 @@ const PaginationComponent = ({total_pages, current_page, onClick}) => {
 
         if (start > 0) {
           pages_links.push(<li onClick={e => {e.preventDefault(); onClick(0)}} key={0}><a href="#">1</a></li>)        
-          pages_links.push(<li key="spanleft"><span>..</span></li>)
+          if (start > 1) {
+            pages_links.push(<li key="spanleft"><span>..</span></li>)
+          }
         }
 
         for (let i=start; i < finish; i++) {
@@ -33,7 +35,10 @@ const PaginationComponent = ({total_pages, current_page, onClick}) => {
         }
 
         if (finish < total_pages) {
-          pages_links.push(<li key="spanright"><span>..</span></li>)
+          if(finish - total_pages < -1) {
+            pages_links.push(<li key="spanright"><span>..</span></li>)
+          }
+          
           pages_links.push(<li onClick={e => {e.preventDefault(); onClick(total_pages - 1)}} key={total_pages - 1}><a href="#">{total_pages}</a></li>)        
         }
       }
