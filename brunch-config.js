@@ -63,6 +63,14 @@ exports.config = {
       // Do not use ES6 compiler in vendor code
       presets: ['es2015', 'es2016', 'react', 'stage-2'],
       ignore: [/web\/static\/vendor/]
+    },
+    uglify : {
+      mangle: false,
+      compress: {
+        global_defs: {
+          DEBUG: false
+        }
+      }
     }
   },
 
